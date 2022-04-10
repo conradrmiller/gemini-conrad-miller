@@ -3,13 +3,17 @@ import styled from 'styled-components'
 import { postTransaction, getAddressInfo } from '../../apiCalls'
 import CONSTANTS from '../../CONSTANTS'
 import ACTION_TYPES from '../../ACTION_TYPES'
+import { JobcoinButton } from '../../globalStyles'
 
 const SendContainer = styled.div`
     border: 1px solid ${CONSTANTS.PURPLE};
     margin: 1em;
+    border-radius: .25em;
+    box-shadow: 0px 2px 5px -1px ${CONSTANTS.GREY};
 `
 
 const SendHeader = styled.div`
+text-align: center;
     border-bottom: 1px solid ${CONSTANTS.GREY};
 `
 
@@ -69,12 +73,12 @@ const SendWidget = ({ state, dispatch }) => {
                         />
                     </label>
                 </InputWrapper>
-                <button
+                <JobcoinButton
                     onClick={sendHandler}
                     disabled={!amount || !destinationAddress}
                 >
                     Send Jobcoins
-                </button>
+                </JobcoinButton>
             </InputContainer>
         </SendContainer>
     )

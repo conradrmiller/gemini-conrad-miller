@@ -8,6 +8,8 @@ const ChartContainer = styled.div`
     margin: 1em;
     /* height: 85vh; */
     max-width: 100%;
+    border-radius: .25em;
+    box-shadow: 0px 2px 5px -1px ${CONSTANTS.GREY};
 
 `;
 
