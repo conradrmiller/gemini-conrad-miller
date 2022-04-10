@@ -2,6 +2,7 @@ import Logo from '../Logo'
 import styled from 'styled-components'
 import CONSTANTS from '../../CONSTANTS'
 import {useNavigate} from 'react-router-dom';
+import ACTION_TYPES from '../../ACTION_TYPES';
 
 const NavStyles = styled.nav`
     height: 4em;
@@ -16,9 +17,14 @@ const LogoWrapper = styled.div`
 `
 
 
-const NavBar = () => {
+const NavBar = ({state, dispatch}) => {
     const navigate = useNavigate();
     const handleSignOut = () => {
+        dispatch({type:ACTION_TYPES.SET_USERNAME, payload: null})
+        dispatch({type:ACTION_TYPES.SET_BALANCE, payload: null})
+        dispatch({type:ACTION_TYPES.SET_TRANSACTIONS, payload: []})
+        
+
         navigate(`${CONSTANTS.SIGNIN_URL}`)
 
     }

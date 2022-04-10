@@ -17,14 +17,17 @@ const LogoWrapper = styled.svg`
 `
 
 
-const SignIn = () => {
+const SignIn = ({state, dispatch}) => {
+
+    console.log('signin state', state)
+    
     return (
         <PageWrapper>
             <LogoWrapper>
                 <Logo />
             </LogoWrapper>
 
-            <SignInWidget />
+            <SignInWidget state={state} dispatch={dispatch}/>
 
         </PageWrapper>
     )
