@@ -1,10 +1,17 @@
 import './App.css';
+import { Routes, Route, Navigate } from "react-router-dom";
+import SignIn from './components/signIn/SignIn';
+import AccountSummary from './components/AccountSummary';
 
 function App() {
   return (
-<>
-App
-</>
+    <>
+    <Routes>
+    <Route path="/*" element={<Navigate to="/SignIn" />} />
+    <Route path="/SignIn" element={<SignIn />} />
+    <Route path="/AccountSummary" element={<AccountSummary />} />
+  </Routes>
+  </>
   );
 }
 
