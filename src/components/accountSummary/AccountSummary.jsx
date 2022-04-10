@@ -53,7 +53,7 @@ const AccountSummary = ({ state, dispatch }) => {
                     <SendWidget state={state} dispatch={dispatch} />
                 </SendLayout>
                 <ChartLayout>
-                    <BalanceChart />
+                    <BalanceChart state={state}/>
                 </ChartLayout>
             </AccountSummaryLayout>
         </>
