@@ -14,13 +14,13 @@ const AmountContainer = styled.div`
     padding: 1em;
 `
 
-const BalanceWidget = () => {
+const BalanceWidget = ({state}) => {
     return (
         <BalanceContainer>
             <BalanceHeader>
                 <h3>Jobcoin Balance</h3>
             </BalanceHeader>
-            <AmountContainer>1 million dollars</AmountContainer>
+            <AmountContainer>{state.balance}</AmountContainer>
         </BalanceContainer>
     )
 }

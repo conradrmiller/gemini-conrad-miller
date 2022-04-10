@@ -47,10 +47,10 @@ const AccountSummary = ({ state, dispatch }) => {
             <NavBar state={state} dispatch={dispatch} />
             <AccountSummaryLayout>
                 <BalanceLayout>
-                    <BalanceWidget />
+                    <BalanceWidget state={state} />
                 </BalanceLayout>
                 <SendLayout>
-                    <SendWidget />
+                    <SendWidget state={state} dispatch={dispatch} />
                 </SendLayout>
                 <ChartLayout>
                     <BalanceChart />

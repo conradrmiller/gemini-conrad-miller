@@ -12,7 +12,7 @@ const jobcoinReducer = (state, action) => {
         case(ACTION_TYPES.SET_BALANCE):{
             return({
                 ...state,
-                balance: parseInt(action.payload)
+                balance: action.payload
             })
         }
         case(ACTION_TYPES.SET_TRANSACTIONS):{

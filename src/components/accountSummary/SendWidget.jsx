@@ -1,5 +1,8 @@
+import { usesState, useState } from 'react'
 import styled from 'styled-components'
+import { postTransaction, getAddressInfo } from '../../apiCalls'
 import CONSTANTS from '../../CONSTANTS'
+import ACTION_TYPES from '../../ACTION_TYPES'
 
 const SendContainer = styled.div`
     border: 1px solid ${CONSTANTS.PURPLE};
@@ -16,7 +19,28 @@ const InputContainer = styled.div`
 
 const InputWrapper = styled.div``
 
-const SendWidget = () => {
+const SendWidget = ({ state, dispatch }) => {
+    const [destinationAddress, setDestinationAddress] = useState()
+    const [amount, setAmount] = useState()
+
+    const sendHandler = () => {
+        postTransaction(state.username, destinationAddress, amount).then(() => {
+            getAddressInfo(state.username).then((response) => {
+                dispatch({
+                    type: ACTION_TYPES.SET_BALANCE,
+                    payload: response?.data?.balance,
+                })
+                dispatch({
+                    type: ACTION_TYPES.SET_TRANSACTIONS,
+                    payload: response?.data?.transactions,
+                })
+            })
+        })
+        alert(`You have successfully sent ${amount} to ${destinationAddress}`)
+        setDestinationAddress('')
+        setAmount('')
+    }
+
     return (
         <SendContainer>
             <SendHeader>
@@ -26,16 +50,31 @@ const SendWidget = () => {
                 <InputWrapper>
                     <label>
                         Destination Address
-                        <input type="text" />
+                        <input
+                            type="text"
+                            onChange={(e) =>
+                                setDestinationAddress(e.target.value)
+                            }
+                            value={destinationAddress}
+                        />
                     </label>
                 </InputWrapper>
                 <InputWrapper>
                     <label>
                         Amount to Send
-                        <input type="text" />
+                        <input
+                            type="number"
+                            onChange={(e) => setAmount(e.target.value)}
+                            value={amount}
+                        />
                     </label>
                 </InputWrapper>
-                <button>Send Jobcoins</button>
+                <button
+                    onClick={sendHandler}
+                    disabled={!amount || !destinationAddress}
+                >
+                    Send Jobcoins
+                </button>
             </InputContainer>
         </SendContainer>
     )
