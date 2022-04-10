@@ -8,7 +8,8 @@ import {
 } from '@visx/xychart'
 import { useEffect, useState } from 'react'
 
-const Chart = ({ state }) => {
+
+const Chart = ({ state}) => {
 
     const [processedBalanceData, setProcessedBalanceData] = useState();
     const incrementOrDecrementBalance = (transaction) => {
@@ -33,8 +34,10 @@ const Chart = ({ state }) => {
     // const processedBalanceData = processData(state.transactions)
 
     useEffect(() => {
-        setProcessedBalanceData(processData(state.transactions))
+        state.transactions ? setProcessedBalanceData(processData(state?.transactions)) : setProcessedBalanceData([])
     }, [state.transactions])
+
+    
 
     const accessors = {
         xAccessor: (d) => d.transactionNumber,
@@ -45,9 +48,10 @@ const Chart = ({ state }) => {
         colors: ['#F28E13'],
         gridColor: 'hsl(44, 0%, 64%)',
     })
+
     return (
         <XYChart
-            height={300}
+            height={400}
             xScale={{ type: 'band' }}
             yScale={{ type: 'linear' }}
             theme={theme}
