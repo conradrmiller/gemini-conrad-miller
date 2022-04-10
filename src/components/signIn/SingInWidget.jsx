@@ -1,4 +1,7 @@
 import styled from 'styled-components'
+import { useNavigate} from "react-router-dom";
+import CONSTANTS from '../../CONSTANTS';
+
 
 const SignInWidgetWrapper = styled.div`
     display: flex;
@@ -11,6 +14,12 @@ const SignInWidgetWrapper = styled.div`
 
 
 const SignInWidget = () => {
+
+    const navigate = useNavigate();
+    const handleSignIn = () => {
+        navigate(`${CONSTANTS.ACCOUNTSUMMARY_URL}`)
+
+    }
     return (
         <SignInWidgetWrapper>
             <div>
@@ -21,7 +30,10 @@ const SignInWidget = () => {
                     Jobcoin Address
                     <input type="text" />
                 </label>
-                <button>Sign In</button>
+                <button onClick={handleSignIn }>
+                    Sign In
+                </button>
+                
             </div>
         </SignInWidgetWrapper>
     )

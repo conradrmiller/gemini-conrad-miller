@@ -1,7 +1,6 @@
-import './App.css';
 import { Routes, Route, Navigate } from "react-router-dom";
 import SignIn from './components/signIn/SignIn';
-import AccountSummary from './components/AccountSummary';
+import AccountSummary from './components/accountSummary/AccountSummary';
 
 function App() {
   return (
