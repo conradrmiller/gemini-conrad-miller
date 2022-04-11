@@ -1,4 +1,4 @@
-import { usesState, useState } from 'react'
+import { useState } from 'react'
 import styled from 'styled-components'
 import { postTransaction, getAddressInfo } from '../../apiCalls'
 import CONSTANTS from '../../CONSTANTS'
@@ -19,7 +19,6 @@ const SendHeader = styled.div`
 const InputContainer = styled.form`
     text-align: center;
     padding: 1em;
-    
 `
 
 const InputWrapper = styled.div`
@@ -32,7 +31,15 @@ const InputWrapper = styled.div`
 
 const InputLabel = styled.label`
     margin: 0.25em;
-`;
+`
+
+const AmountInput = styled.input`
+    ::-webkit-inner-spin-button,
+    ::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+`
 
 const SendWidget = ({ state, dispatch }) => {
     const [destinationAddress, setDestinationAddress] = useState()
@@ -61,12 +68,15 @@ const SendWidget = ({ state, dispatch }) => {
             <SendHeader>
                 <h3>Send JobCoin</h3>
             </SendHeader>
-            <InputContainer id="sendWidget" onSubmit={e=>e.preventDefault()}>
+            <InputContainer
+                id="sendWidget"
+                onSubmit={(e) => e.preventDefault()}
+            >
                 <InputWrapper>
                     <InputLabel htmlFor="destinationAddress">
                         Destination Address
                     </InputLabel>
-      
+
                     <input
                         id="destinationAddress"
                         type="text"
@@ -75,9 +85,11 @@ const SendWidget = ({ state, dispatch }) => {
                     />
                 </InputWrapper>
                 <InputWrapper>
-                    <InputLabel htmlFor="amountToSend">Amount to Send</InputLabel>
-      
-                    <input
+                    <InputLabel htmlFor="amountToSend">
+                        Amount to Send
+                    </InputLabel>
+
+                    <AmountInput
                         id="amountToSend"
                         type="number"
                         onChange={(e) => setAmount(e.target.value)}

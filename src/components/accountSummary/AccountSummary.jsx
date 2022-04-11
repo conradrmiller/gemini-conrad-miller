@@ -55,7 +55,6 @@ const AccountSummary = ({ state, dispatch }) => {
         })
     }, [])
 
-    console.log('account summary state', state)
     return (
         <>
             {!state.username && <Navigate to="/SignIn" />}

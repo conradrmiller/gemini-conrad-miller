@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import SignInWidget from './SingInWidget'
 
-import CONSTANTS from '../../CONSTANTS'
 import Logo from '../Logo'
 
 const PageWrapper = styled.div`
@@ -16,19 +15,15 @@ const LogoWrapper = styled.svg`
     width: 5em;
 `
 
+const SignIn = ({ state, dispatch }) => {
 
-const SignIn = ({state, dispatch}) => {
-
-    console.log('signin state', state)
-    
     return (
         <PageWrapper>
             <LogoWrapper>
                 <Logo />
             </LogoWrapper>
 
-            <SignInWidget state={state} dispatch={dispatch}/>
-
+            <SignInWidget state={state} dispatch={dispatch} />
         </PageWrapper>
     )
 }

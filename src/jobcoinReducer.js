@@ -1,32 +1,30 @@
-import ACTION_TYPES from "./ACTION_TYPES";
-
+import ACTION_TYPES from './ACTION_TYPES'
 
 const jobcoinReducer = (state, action) => {
-    switch(action.type){
-        case(ACTION_TYPES.SET_USERNAME):{
+    switch (action.type) {
+        case ACTION_TYPES.SET_USERNAME: {
             localStorage.setItem('username', JSON.stringify(action.payload))
-            return({
+            return {
                 ...state,
-                username: action.payload
-            })
+                username: action.payload,
+            }
         }
-        case(ACTION_TYPES.SET_BALANCE):{
-            return({
+        case ACTION_TYPES.SET_BALANCE: {
+            return {
                 ...state,
-                balance: action.payload
-            })
+                balance: action.payload,
+            }
         }
-        case(ACTION_TYPES.SET_TRANSACTIONS):{
-            return({
+        case ACTION_TYPES.SET_TRANSACTIONS: {
+            return {
                 ...state,
-                transactions: [...action.payload]
-            })
+                transactions: [...action.payload],
+            }
         }
         default: {
-            return {...state}
+            return { ...state }
         }
-
     }
 }
 
-export default jobcoinReducer;
+export default jobcoinReducer

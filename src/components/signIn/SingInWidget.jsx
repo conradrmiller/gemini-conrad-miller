@@ -35,7 +35,7 @@ const InputLabel = styled.label`
     margin: 0.5em;
 `
 
-const SignInWidget = ({ state, dispatch }) => {
+const SignInWidget = ({ dispatch }) => {
     const [signInInput, setSignInInput] = useState('')
 
     const navigate = useNavigate()

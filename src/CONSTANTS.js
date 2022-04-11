@@ -3,8 +3,7 @@ const CONSTANTS = {
     ORANGE: '#F28E13',
     GREY: '#787878',
     SIGNIN_URL: '/SignIn',
-    ACCOUNTSUMMARY_URL:"/AccountSummary"
-
+    ACCOUNTSUMMARY_URL: '/AccountSummary',
 }
 
-export default CONSTANTS;
+export default CONSTANTS

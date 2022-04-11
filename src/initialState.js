@@ -1,9 +1,7 @@
 const initialState = {
-    username: JSON.parse(localStorage.getItem("username")) || null,
+    username: JSON.parse(localStorage.getItem('username')) || null,
     balance: null,
-    transactions: null
-
-
+    transactions: null,
 }
 
-export default initialState;
+export default initialState

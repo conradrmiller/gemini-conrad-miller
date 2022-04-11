@@ -7,11 +7,10 @@ import {
     LineSeries,
 } from '@visx/xychart'
 import { useEffect, useState } from 'react'
+import CONSTANTS from '../../CONSTANTS'
 
-
-const Chart = ({ state, height, width}) => {
-
-    const [processedBalanceData, setProcessedBalanceData] = useState();
+const Chart = ({ state, height, width }) => {
+    const [processedBalanceData, setProcessedBalanceData] = useState()
     const incrementOrDecrementBalance = (transaction) => {
         if (transaction.toAddress === state.username) {
             return parseInt(transaction.amount, 10)
@@ -26,18 +25,16 @@ const Chart = ({ state, height, width}) => {
 
             return {
                 transactionNumber: index + 1,
-                // timestamp: new Date(el.timestamp).toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"}) ,
                 timestamp: new Date(el.timestamp).toLocaleString('en-us'),
                 balance: runningBalance,
             }
         })
-    // const processedBalanceData = processData(state.transactions)
 
     useEffect(() => {
-        state.transactions ? setProcessedBalanceData(processData(state?.transactions)) : setProcessedBalanceData([])
+        state.transactions
+            ? setProcessedBalanceData(processData(state?.transactions))
+            : setProcessedBalanceData([])
     }, [state.transactions])
-
-    
 
     const accessors = {
         xAccessor: (d) => d.transactionNumber,
@@ -45,8 +42,8 @@ const Chart = ({ state, height, width}) => {
     }
 
     const theme = buildChartTheme({
-        colors: ['#F28E13'],
-        gridColor: 'hsl(44, 0%, 64%)',
+        colors: [`${CONSTANTS.ORANGE}`],
+        gridColor: `${CONSTANTS.GREY}`,
     })
 
     return (
@@ -60,7 +57,11 @@ const Chart = ({ state, height, width}) => {
             <Axis orientation="bottom" label="Transaction Number" />
             <Axis orientation="left" label="Amount $" />
             <Grid columns={false} numTicks={4} />
-            <LineSeries dataKey="Balance" data={processedBalanceData} {...accessors} />
+            <LineSeries
+                dataKey="Balance"
+                data={processedBalanceData}
+                {...accessors}
+            />
             <Tooltip
                 snapTooltipToDatumX
                 snapTooltipToDatumY

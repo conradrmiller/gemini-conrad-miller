@@ -1,6 +1,7 @@
 import axios from 'axios'
 
-const addressInfoURL = 'https://jobcoin.gemini.com/writing-squirt/api/addresses/'
+const addressInfoURL =
+    'https://jobcoin.gemini.com/writing-squirt/api/addresses/'
 const transactionURL =
     'https://jobcoin.gemini.com/writing-squirt/api/transactions?callback=responseCallback'
 
