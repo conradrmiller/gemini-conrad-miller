@@ -9,7 +9,7 @@ import {
 import { useEffect, useState } from 'react'
 
 
-const Chart = ({ state}) => {
+const Chart = ({ state, height, width}) => {
 
     const [processedBalanceData, setProcessedBalanceData] = useState();
     const incrementOrDecrementBalance = (transaction) => {
@@ -51,7 +51,8 @@ const Chart = ({ state}) => {
 
     return (
         <XYChart
-            height={400}
+            height={height}
+            width={width}
             xScale={{ type: 'band' }}
             yScale={{ type: 'linear' }}
             theme={theme}

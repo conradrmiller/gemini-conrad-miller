@@ -24,7 +24,7 @@ const SignInHeader = styled.div`
 `
 const InputContainer = styled.div`
     text-align: center;
-    padding: 1em;
+    padding-bottom: 1em;
 `
 const InputWrapper = styled.div`
     margin: 1em 0.5em;
