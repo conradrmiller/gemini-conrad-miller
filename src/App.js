@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { useReducer } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import SignIn from './components/signIn/SignIn';
+import AccountSummary from './components/accountSummary/AccountSummary';
+import jobcoinReducer from './jobcoinReducer';
+import initialState from './initialState';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+
+
+
+    const [appState, dispatch] = useReducer(jobcoinReducer, initialState);
+    return (
+        <>
+            <Routes>
+                <Route path="/*" element={<Navigate to="/SignIn" />} />
+                <Route path="/SignIn" element={<SignIn state={appState} dispatch={dispatch}/>} />
+                <Route path="/AccountSummary" element={<AccountSummary state={appState} dispatch={dispatch}/>} />
+            </Routes>
+        </>
+    )
 }
 
-export default App;
+export default App
