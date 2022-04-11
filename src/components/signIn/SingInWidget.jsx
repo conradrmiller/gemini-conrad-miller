@@ -22,7 +22,7 @@ const SignInHeader = styled.div`
     padding: 1em;
     border-bottom: 1px solid ${CONSTANTS.GREY};
 `
-const InputContainer = styled.div`
+const InputContainer = styled.form`
     text-align: center;
     padding-bottom: 1em;
 `
@@ -54,7 +54,7 @@ const SignInWidget = ({ state, dispatch }) => {
             <SignInHeader>
                 <h3>Welcome! Sign In With Your Jobcoin Address</h3>
             </SignInHeader>
-            <InputContainer>
+            <InputContainer id="signInWidget" onSubmit={e=>e.preventDefault()}>
                 <InputWrapper>
                     <InputLabel htmlFor="signIn">Jobcoin Address</InputLabel>
                     <input
@@ -63,7 +63,7 @@ const SignInWidget = ({ state, dispatch }) => {
                         onChange={(e) => setSignInInput(e.target.value)}
                     />
                 </InputWrapper>
-                <JobcoinButton onClick={handleSignIn} disabled={!signInInput}>
+                <JobcoinButton onClick={handleSignIn} disabled={!signInInput} type="submit" form="signInWidget">
                     Sign In
                 </JobcoinButton>
             </InputContainer>

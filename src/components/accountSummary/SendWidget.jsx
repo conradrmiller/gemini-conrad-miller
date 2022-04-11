@@ -17,7 +17,7 @@ const SendHeader = styled.div`
     border-bottom: 1px solid ${CONSTANTS.GREY};
 `
 
-const InputContainer = styled.div`
+const InputContainer = styled.form`
     text-align: center;
     padding: 1em;
     
@@ -62,7 +62,7 @@ const SendWidget = ({ state, dispatch }) => {
             <SendHeader>
                 <h3>Send JobCoin</h3>
             </SendHeader>
-            <InputContainer>
+            <InputContainer id="sendWidget" onSubmit={e=>e.preventDefault()}>
                 <InputWrapper>
                     <InputLabel htmlFor="destinationAddress">
                         Destination Address
@@ -88,6 +88,8 @@ const SendWidget = ({ state, dispatch }) => {
                 <JobcoinButton
                     onClick={sendHandler}
                     disabled={!amount || !destinationAddress}
+                    type="submit"
+                    form="sendWidget"
                 >
                     Send Jobcoins
                 </JobcoinButton>
