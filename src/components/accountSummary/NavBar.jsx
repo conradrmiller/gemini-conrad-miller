@@ -54,7 +54,7 @@ const NavBar = ({ state, dispatch }) => {
                 <Title>Account Summary</Title>
             </LeftNav>
             <RightNav>
-                <UserName>{state.username} Signed In</UserName>
+                <UserName>Hello <b>{state.username}</b></UserName>
                 <JobcoinButton onClick={handleSignOut}>Sign Out</JobcoinButton>
             </RightNav>
         </NavStyles>

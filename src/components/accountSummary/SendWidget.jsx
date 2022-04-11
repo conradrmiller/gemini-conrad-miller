@@ -8,20 +8,32 @@ import { JobcoinButton } from '../../globalStyles'
 const SendContainer = styled.div`
     border: 1px solid ${CONSTANTS.PURPLE};
     margin: 1em;
-    border-radius: .25em;
+    border-radius: 0.25em;
     box-shadow: 0px 2px 5px -1px ${CONSTANTS.GREY};
 `
 
 const SendHeader = styled.div`
-text-align: center;
+    text-align: center;
     border-bottom: 1px solid ${CONSTANTS.GREY};
 `
 
 const InputContainer = styled.div`
+    text-align: center;
     padding: 1em;
+    
 `
 
-const InputWrapper = styled.div``
+const InputWrapper = styled.div`
+    margin: 1em 0.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+`
+
+const InputLabel = styled.label`
+    margin: 0.25em;
+`;
 
 const SendWidget = ({ state, dispatch }) => {
     const [destinationAddress, setDestinationAddress] = useState()
@@ -52,26 +64,26 @@ const SendWidget = ({ state, dispatch }) => {
             </SendHeader>
             <InputContainer>
                 <InputWrapper>
-                    <label>
+                    <InputLabel htmlFor="destinationAddress">
                         Destination Address
-                        <input
-                            type="text"
-                            onChange={(e) =>
-                                setDestinationAddress(e.target.value)
-                            }
-                            value={destinationAddress}
-                        />
-                    </label>
+                    </InputLabel>
+      
+                    <input
+                        id="destinationAddress"
+                        type="text"
+                        onChange={(e) => setDestinationAddress(e.target.value)}
+                        value={destinationAddress}
+                    />
                 </InputWrapper>
                 <InputWrapper>
-                    <label>
-                        Amount to Send
-                        <input
-                            type="number"
-                            onChange={(e) => setAmount(e.target.value)}
-                            value={amount}
-                        />
-                    </label>
+                    <InputLabel htmlFor="amountToSend">Amount to Send</InputLabel>
+      
+                    <input
+                        id="amountToSend"
+                        type="number"
+                        onChange={(e) => setAmount(e.target.value)}
+                        value={amount}
+                    />
                 </InputWrapper>
                 <JobcoinButton
                     onClick={sendHandler}
