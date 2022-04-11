@@ -13,6 +13,20 @@ const AccountSummaryLayout = styled.main`
     grid-template-areas:
         'balance chart'
         'send chart';
+
+    @media (max-width:400px){
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            'balance'
+            'send'
+            'chart'
+        
+        ;
+        
+
+    }
+
+    
 `
 
 const BalanceLayout = styled.section`

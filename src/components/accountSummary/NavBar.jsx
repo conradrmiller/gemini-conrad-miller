@@ -34,6 +34,10 @@ const UserName = styled.p`
 
 const Title = styled.h2`
     margin: 1em;
+
+    @media (max-width: 400px){
+        font-size: medium;
+    }
 `;
 
 const NavBar = ({ state, dispatch }) => {

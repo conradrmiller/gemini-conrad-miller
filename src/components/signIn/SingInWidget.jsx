@@ -13,6 +13,8 @@ const SignInWidgetWrapper = styled.div`
     border-radius: 0.25em;
     box-shadow: 0px 2px 5px -1px ${CONSTANTS.GREY};
     max-width: 350px;
+
+
 `
 
 const SignInHeader = styled.div`
