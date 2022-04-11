@@ -4,7 +4,6 @@ import SignIn from './components/signIn/SignIn';
 import AccountSummary from './components/accountSummary/AccountSummary';
 import jobcoinReducer from './jobcoinReducer';
 import initialState from './initialState';
-import styled from 'styled-components';
 
 const App = () => {
 

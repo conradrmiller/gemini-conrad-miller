@@ -13,8 +13,6 @@ const SignInWidgetWrapper = styled.div`
     border-radius: 0.25em;
     box-shadow: 0px 2px 5px -1px ${CONSTANTS.GREY};
     max-width: 350px;
-
-
 `
 
 const SignInHeader = styled.div`
@@ -32,12 +30,10 @@ const InputWrapper = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
 `
 const InputLabel = styled.label`
     margin: 0.5em;
-`;
-
+`
 
 const SignInWidget = ({ state, dispatch }) => {
     const [signInInput, setSignInInput] = useState('')
@@ -54,7 +50,10 @@ const SignInWidget = ({ state, dispatch }) => {
             <SignInHeader>
                 <h3>Welcome! Sign In With Your Jobcoin Address</h3>
             </SignInHeader>
-            <InputContainer id="signInWidget" onSubmit={e=>e.preventDefault()}>
+            <InputContainer
+                id="signInWidget"
+                onSubmit={(e) => e.preventDefault()}
+            >
                 <InputWrapper>
                     <InputLabel htmlFor="signIn">Jobcoin Address</InputLabel>
                     <input
@@ -63,7 +62,12 @@ const SignInWidget = ({ state, dispatch }) => {
                         onChange={(e) => setSignInInput(e.target.value)}
                     />
                 </InputWrapper>
-                <JobcoinButton onClick={handleSignIn} disabled={!signInInput} type="submit" form="signInWidget">
+                <JobcoinButton
+                    onClick={handleSignIn}
+                    disabled={!signInInput}
+                    type="submit"
+                    form="signInWidget"
+                >
                     Sign In
                 </JobcoinButton>
             </InputContainer>

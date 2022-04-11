@@ -1,3 +1,4 @@
+import { Navigate } from 'react-router-dom'
 import BalanceChart from './BalanceChart'
 import BalanceWidget from './BalanceWidget'
 import NavBar from './NavBar'
@@ -14,19 +15,15 @@ const AccountSummaryLayout = styled.main`
         'balance chart'
         'send chart';
 
-    @media (max-width:400px){
+    grid-template-rows: 1fr 4fr;
+
+    @media (max-width: 400px) {
         grid-template-columns: 1fr;
-        grid-template-areas: 
+        grid-template-areas:
             'balance'
             'send'
-            'chart'
-        
-        ;
-        
-
+            'chart';
     }
-
-    
 `
 
 const BalanceLayout = styled.section`
@@ -55,9 +52,10 @@ const AccountSummary = ({ state, dispatch }) => {
         })
     }, [])
 
-    console.log('account summary state',state)
+    console.log('account summary state', state)
     return (
         <>
+            {!state.username && <Navigate to="/SignIn" />}
             <NavBar state={state} dispatch={dispatch} />
             <AccountSummaryLayout>
                 <BalanceLayout>
@@ -67,7 +65,7 @@ const AccountSummary = ({ state, dispatch }) => {
                     <SendWidget state={state} dispatch={dispatch} />
                 </SendLayout>
                 <ChartLayout>
-                    <BalanceChart state={state}/>
+                    <BalanceChart state={state} />
                 </ChartLayout>
             </AccountSummaryLayout>
         </>

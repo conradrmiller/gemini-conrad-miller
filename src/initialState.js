@@ -1,5 +1,5 @@
 const initialState = {
-    username: null,
+    username: JSON.parse(localStorage.getItem("username")) || null,
     balance: null,
     transactions: null
 
