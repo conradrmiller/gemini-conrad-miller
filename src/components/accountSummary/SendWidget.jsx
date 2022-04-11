@@ -7,7 +7,6 @@ import { JobcoinButton } from '../../globalStyles'
 
 const SendContainer = styled.div`
     border: 1px solid ${CONSTANTS.PURPLE};
-    margin: 1em;
     border-radius: 0.25em;
     box-shadow: 0px 2px 5px -1px ${CONSTANTS.GREY};
 `

@@ -16,9 +16,12 @@ const AccountSummaryLayout = styled.main`
         'send chart';
 
     grid-template-rows: 1fr 4fr;
-
+    gap: 1em;
+    max-width: 100%;
+    padding: 1em;
     @media (max-width: 400px) {
         grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
         grid-template-areas:
             'balance'
             'send'

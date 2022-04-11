@@ -11,6 +11,7 @@ const NavStyles = styled.nav`
     justify-content: space-between;
     border-bottom: 1px solid ${CONSTANTS.PURPLE};
     box-shadow: 0px 2px 5px -1px ${CONSTANTS.GREY};
+    width: 100vw;
 `
 
 const LogoWrapper = styled.div`
